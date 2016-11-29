@@ -4,7 +4,7 @@ MAINTAINER Brian O'Meara <omeara.brian@gmail.com>
 
 RUN R install2.R --error ctv
 
-RUN Rscript -e "ctv::install.views("Phylogenetics")
+RUN Rscript -e "ctv::install.views('Phylogenetics')"
 
 RUN Rscript -e "devtools::install_github(c('thej022214/hisse', 'thej022214/OUwie', 'bomeara/phrapl', 'phylotastic/datelife', 'thej022214/corHMM', 'heibl/ips'))"
 

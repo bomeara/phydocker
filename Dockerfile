@@ -8,7 +8,7 @@ RUN apt-get install -y apt-utils
 
 RUN apt-get install -y libmpfr-dev libmpfr-doc
 
-RUN apt-get install -y r-cran-rgl
+RUN apt-get install libgl1-mesa-dev
 
 RUN Rscript -e "install.packages('ctv')"
 

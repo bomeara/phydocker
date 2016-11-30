@@ -8,7 +8,7 @@ RUN apt-get install -y apt-utils
 
 RUN apt-get install -y libmpfr-dev libmpfr-doc
 
-RUN apt-get install r-cran-rgl
+RUN apt-get install -y r-cran-rgl
 
 RUN Rscript -e "install.packages('ctv')"
 
@@ -28,3 +28,5 @@ cd /usr/local/pathd8download && \
 unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
+
+EXPOSE 8080

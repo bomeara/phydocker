@@ -28,5 +28,3 @@ cd /usr/local/pathd8download && \
 unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
-
-EXPOSE 8080

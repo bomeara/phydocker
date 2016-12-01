@@ -20,7 +20,7 @@ RUN apt-get -y install python-dev
 
 RUN apt-get -y install libcgal-dev libglu1-mesa-dev libglu1-mesa-dev libx11-dev
 
-RUN Rscript -e "devtools::install_github(c('thej022214/hisse', 'thej022214/OUwie', 'bomeara/phrapl', 'phylotastic/datelife', 'thej022214/corHMM', 'heibl/ips', 'bomeara/phybase'))"
+RUN Rscript -e "devtools::install_github(c('thej022214/hisse', 'thej022214/OUwie', 'bomeara/phrapl', 'phylotastic/datelife', 'thej022214/corHMM', 'heibl/ips'))"
 
 RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \

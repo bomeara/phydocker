@@ -31,7 +31,11 @@ RUN Rscript -e "ctv::install.views('Phylogenetics')"
 
 RUN Rscript -e "install.packages('diagram')"
 
-RUN Rscript -e "devtools::install_github(c('bomeara/phrapl', 'phylotastic/datelife', 'heibl/ips'))"
+RUN Rscript -e "devtools::install_github('bomeara/phrapl')"
+
+RUN Rscript -e "devtools::install_github( 'heibl/ips')"
+
+
 
 RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \

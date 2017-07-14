@@ -3,6 +3,10 @@ Dockerfile for phylogenetics in R
 
 `docker build -t bomeara/phydocker .`
 
+Or if you want to not use the cached images:
+
+`docker build --no-cache -t bomeara/phydocker .`
+
 `docker push bomeara/phydocker`
 
 As a user, install docker. Then in a command window or within docker:

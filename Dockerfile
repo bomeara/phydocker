@@ -2,6 +2,8 @@ FROM rocker/ropensci
 
 MAINTAINER Brian O'Meara <omeara.brian@gmail.com>
 
+ADD VERSION .
+
 RUN apt-get update
 
 RUN apt-get install -y apt-utils

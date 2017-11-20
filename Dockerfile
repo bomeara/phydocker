@@ -11,7 +11,7 @@ RUN apt-get install -y apt-utils
 
 RUN echo 'options(repos = c(CRAN="https://cran.rstudio.com"))' > ~/.Rprofile
 
-RUN apt-get install -y software-properties-common python-software-properties
+RUN apt-get install -y software-properties-common
 
 RUN apt-get -y install python-dev
 

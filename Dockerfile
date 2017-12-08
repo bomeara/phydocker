@@ -75,8 +75,6 @@ RUN brew tap jonchang/biology
 
 RUN brew install -v treepl
 
-RUN brew install r8s
-
 RUN brew install raxml
 
 RUN brew install revbayes

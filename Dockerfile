@@ -84,3 +84,5 @@ RUN brew install phyutility
 RUN brew install phlawd
 
 USER root
+
+ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH

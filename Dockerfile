@@ -52,6 +52,9 @@ cp PATHd8 /usr/local/bin/PATHd8
 
 # From https://github.com/Linuxbrew/docker/blob/master/centos7/Dockerfile
 
+RUN apt-get install -y curl make ruby sudo which \
+  && apt-get clean all
+
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
 	&& useradd -m -s /bin/bash linuxbrew \
 	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers

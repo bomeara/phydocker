@@ -77,8 +77,6 @@ RUN brew install -v treepl
 
 RUN brew install raxml
 
-RUN brew install revbayes
-
 RUN brew install phylip
 
 RUN brew install phyutility

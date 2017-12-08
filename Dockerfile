@@ -50,19 +50,21 @@ unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
 
+# From https://github.com/Linuxbrew/docker/blob/master/centos7/Dockerfile
 
-RUN useradd --system -s /sbin/nologin linuxbrewuser
+RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
+	&& useradd -m -s /bin/bash linuxbrew \
+	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
-RUN mkdir /home/linuxbrewuser
+USER linuxbrew
+WORKDIR /home/linuxbrew
 
-USER linuxbrewuser
+ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH \
+	SHELL=/bin/bash \
+	USER=linuxbrew
 
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-
-RUN test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-RUN test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-RUN test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
-RUN echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
+RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)" \
+	&& brew config
 
 RUN brew tap homebrew/science
 

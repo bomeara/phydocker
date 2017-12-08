@@ -50,13 +50,13 @@ unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
 
+RUN git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
 
 
 RUN useradd --system -s /sbin/nologin linuxbrewuser
 
 USER linuxbrewuser
 
-RUN git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
 
 RUN PATH="$HOME/.linuxbrew/bin:$PATH"
 RUN export MANPATH="$(brew --prefix)/share/man:$MANPATH"

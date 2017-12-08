@@ -23,6 +23,8 @@ RUN apt-get -y install x11-common
 
 RUN apt-get install -y libmpfr-dev libmpfr-doc
 
+RUN apt-get install -y curl
+
 RUN apt-get install libgl1-mesa-dev
 
 RUN apt-get install ed
@@ -43,16 +45,6 @@ RUN Rscript -e "install.packages('yearn')"
 
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
-RUN test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
-test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
-echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
-
-RUN brew tap homebrew/science
-
-RUN brew tap jonchang/biology
-
-RUN brew install -v treepl
 
 RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \
@@ -60,3 +52,33 @@ cd /usr/local/pathd8download && \
 unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
+
+RUN git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+
+RUN PATH="$HOME/.linuxbrew/bin:$PATH"
+RUN export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+RUN export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+
+RUN useradd --system -s /sbin/nologin linuxbrewuser
+
+USER linuxbrewuser
+
+RUN brew tap homebrew/science
+
+RUN brew tap jonchang/biology
+
+RUN brew install -v treepl
+
+RUN brew install r8s
+
+RUN brew install raxml
+
+RUN brew install revbayes
+
+RUN brew install phylip
+
+RUN brew install phyutility
+
+RUN brew install phlawd
+
+USER root

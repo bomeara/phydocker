@@ -50,18 +50,19 @@ unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
 
-RUN git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
-
 
 RUN useradd --system -s /sbin/nologin linuxbrewuser
 
+RUN mkdir /home/linuxbrewuser
+
 USER linuxbrewuser
 
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
-RUN PATH="$HOME/.linuxbrew/bin:$PATH"
-RUN export MANPATH="$(brew --prefix)/share/man:$MANPATH"
-RUN export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
-
+RUN test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+RUN test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+RUN test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
+RUN echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
 
 RUN brew tap homebrew/science
 

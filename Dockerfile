@@ -55,13 +55,15 @@ cp PATHd8 /usr/local/bin/PATHd8
 
 RUN git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
 
-RUN PATH="$HOME/.linuxbrew/bin:$PATH"
-RUN export MANPATH="$(brew --prefix)/share/man:$MANPATH"
-RUN export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
 
 RUN useradd --system -s /sbin/nologin linuxbrewuser
 
 USER linuxbrewuser
+
+RUN PATH="$HOME/.linuxbrew/bin:$PATH"
+RUN export MANPATH="$(brew --prefix)/share/man:$MANPATH"
+RUN export INFOPATH="$(brew --prefix)/share/info:$INFOPATH"
+
 
 RUN brew tap homebrew/science
 

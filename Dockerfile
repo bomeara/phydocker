@@ -83,6 +83,8 @@ RUN brew install phyutility
 
 RUN brew install phlawd
 
+RUN brew install phylocom
+
 USER root
 
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH

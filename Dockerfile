@@ -8,7 +8,6 @@ RUN apt-get update
 
 RUN apt-get install -y apt-utils
 
-
 RUN echo 'options(repos = c(CRAN="https://cran.rstudio.com"))' > ~/.Rprofile
 
 RUN apt-get install -y software-properties-common

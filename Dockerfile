@@ -68,9 +68,6 @@ ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH \
 RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)" \
 	&& brew config
 
-RUN brew tap homebrew/science
-
-RUN brew install -v homebrew/science/adol-c
 
 RUN brew tap jonchang/biology
 

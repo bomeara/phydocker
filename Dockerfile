@@ -70,6 +70,8 @@ RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/inst
 
 RUN brew tap homebrew/science
 
+RUN brew install -v homebrew/science/adol-c
+
 RUN brew tap jonchang/biology
 
 RUN brew install -v treepl

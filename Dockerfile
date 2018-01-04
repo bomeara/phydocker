@@ -71,6 +71,8 @@ RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/inst
 
 RUN brew tap jonchang/biology
 
+RUN brew tap bomeara/homebrew-science
+
 RUN brew install -v treepl
 
 RUN brew install raxml

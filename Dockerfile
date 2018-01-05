@@ -81,7 +81,7 @@ RUN brew install phylip
 
 RUN brew install phyutility
 
-RUN brew install phlawd
+# RUN brew install phlawd
 
 RUN brew install phylocom
 

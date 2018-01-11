@@ -6,15 +6,15 @@ For most users you first want to install docker. Then you want to do the followi
 
 Then in a command window or within docker:
 
-`docker run -it --name phydocker -v /Path/To/My/Folder:/data -p 8787:8787 bomeara/phydocker`
+`docker run -v ~/Desktop:/data -p 8787:8787 bomeara/phydocker`
 
-Then you can go to http://localhost:8787 to run it; log in as `rstudio` with password `rstudio`. Replace `/Path/To/My/Folder` with the full path to the folder where you have files (i.e., `/Users/jsmith/Desktop/`)
+Then you can go to http://localhost:8787 to run it; log in as `rstudio` with password `rstudio`. Replace `~/Desktop` with the full path to the folder where you have files (i.e., `/Users/jsmith/Documents/Chapter1`). You can keep it `~/Desktop`, it'll then have your desktop present as the `/data` directory in Docker (i.e., in R, you can do `save(ape::rcoal(10), file="/data/random.tre")` and it'll save a random tree to your desktop. When you're done, you can kill the process with control+C.
 
 If you want to run on the command line instead (i.e., from inside Terminal on a Mac) you can do
 
-`docker run -it --name phydocker -v /Path/To/My/Folder:/data bomeara/phydocker /bin/bash`
+`docker run -it -v ~/Desktop:/data bomeara/phydocker /bin/bash`
 
-You can then use programs like treePL and phlawd without having to go through installation.
+You can then use programs like treePL and phlawd without having to go through installation.  `exit` command when done.
 
 For building this from scratch (not most users)
 

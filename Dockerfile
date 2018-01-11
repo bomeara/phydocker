@@ -108,7 +108,7 @@ RUN brew install phyutility
 
 # RUN brew install phlawd
 
-RUN brew install phylocom
+# RUN brew install phylocom
 
 RUN brew install beast
 

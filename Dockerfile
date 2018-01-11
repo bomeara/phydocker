@@ -40,7 +40,7 @@ RUN apt-get install -y python-biopython
 
 RUN pip install -U dendropy
 
-
+RUN apt-get install -y puppet
 
 RUN Rscript -e "install.packages('ctv')"
 
@@ -62,6 +62,13 @@ cd /usr/local/pathd8download && \
 unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
+
+RUN mkdir /usr/local/supersmart && \
+cd /usr/local/supersmart && \
+git clone https://github.com/naturalis/supersmart.git && \
+cd supersmart/conf && \
+puppet apply
+
 
 # From https://github.com/Linuxbrew/docker/blob/master/centos7/Dockerfile
 

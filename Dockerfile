@@ -122,13 +122,13 @@ RUN brew install trimal
 RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml && \
 cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
 
+USER root
+
+ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+
 RUN mkdir /usr/local/phylogenerator && \
 wget https://github.com/willpearse/phyloGenerator/archive/master.zip -O /usr/local/phylogenerator/master.zip && \
 cd /usr/local/phylogenerator && \
 unzip /usr/local/phylogenerator/master.zip && \
 cd phylogenerator-master && \
 python setupLinux.py
-
-USER root
-
-ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH

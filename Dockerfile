@@ -92,7 +92,7 @@ RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/inst
 
 RUN brew tap jonchang/biology
 
-RUN brew install revbayes
+# RUN brew install revbayes
 
 RUN brew install bucky
 

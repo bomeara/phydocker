@@ -38,6 +38,8 @@ RUN apt-get install -y python-scipy
 
 RUN apt-get install -y python-biopython
 
+RUN apt-get install dnsutils -y
+
 RUN pip install -U dendropy
 
 RUN apt-get install -y puppet
@@ -118,6 +120,10 @@ RUN brew install prank
 
 RUN brew install trimal
 
+RUN brew install clustal-omega
+
+RUN brew install cabal-install
+
 
 RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml && \
 cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
@@ -126,9 +132,29 @@ USER root
 
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
+RUN mkdir /usr/local/scratchspace && \
+cd /usr/local/scratchspace && \
+git clone git://github.com/benb/phytree.git phytree && \
+cd phytree && \
+cabal update && \
+cabal install && \
+cd .. && \
+git clone git://github.com/benb/MetAl.git metal && \
+cd metal && \
+cabal install && \
+
+RUN mkdir /usr/local/phylocom && \
+wget https://github.com/downloads/phylocom/phylocom/phylocom-4.2.zip -O /usr/local/phylocom/phylocom.zip && \
+cd /usr/local/phylocom && \
+unzip /usr/local/phylocom/phylocom.zip && \
+cd /usr/local/phylocom/phylocom-4.2/src && \
+make && \
+cp phylocom /usr/local/bin
+
+
 RUN mkdir /usr/local/phylogenerator && \
 wget https://github.com/willpearse/phyloGenerator/archive/master.zip -O /usr/local/phylogenerator/master.zip && \
 cd /usr/local/phylogenerator && \
 unzip /usr/local/phylogenerator/master.zip && \
-cd phylogenerator-master && \
+cd /usr/local/phylogenerator/phyloGenerator-master && \
 python setupLinux.py

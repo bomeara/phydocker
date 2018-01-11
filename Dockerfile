@@ -129,9 +129,6 @@ unzip /usr/local/phylogenerator/master.zip && \
 cd phylogenerator-master && \
 python setupLinux.py
 
-
-https://github.com/willpearse/phyloGenerator/archive/master.zip
-
 USER root
 
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH

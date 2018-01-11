@@ -28,6 +28,20 @@ RUN apt-get install libgl1-mesa-dev
 
 RUN apt-get install ed
 
+RUN apt-get install -y mafft
+
+RUN apt-get install -y muscle
+
+RUN apt-get install -y python-numpy
+
+RUN apt-get install -y python-scipy
+
+RUN apt-get install -y python-biopython
+
+RUN pip install -U dendropy
+
+
+
 RUN Rscript -e "install.packages('ctv')"
 
 RUN Rscript -e "ctv::install.views('Phylogenetics')"
@@ -87,7 +101,29 @@ RUN brew install phyutility
 
 # RUN brew install phlawd
 
-# RUN brew install phylocom
+RUN brew install phylocom
+
+RUN brew install beast
+
+RUN brew install beast2
+
+RUN brew install prank
+
+RUN brew install trimal
+
+
+RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml && \
+cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
+
+RUN mkdir /usr/local/phylogenerator && \
+wget https://github.com/willpearse/phyloGenerator/archive/master.zip -O /usr/local/phylogenerator/master.zip && \
+cd /usr/local/phylogenerator && \
+unzip /usr/local/phylogenerator/master.zip && \
+cd phylogenerator-master && \
+python setupLinux.py
+
+
+https://github.com/willpearse/phyloGenerator/archive/master.zip
 
 USER root
 

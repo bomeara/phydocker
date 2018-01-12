@@ -122,8 +122,6 @@ RUN brew install trimal
 
 RUN brew install clustal-omega
 
-RUN brew install cabal-install
-
 
 RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml && \
 cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
@@ -132,16 +130,6 @@ USER root
 
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
-RUN mkdir /usr/local/scratchspace && \
-cd /usr/local/scratchspace && \
-git clone git://github.com/benb/phytree.git phytree && \
-cd phytree && \
-cabal update && \
-cabal install && \
-cd .. && \
-git clone git://github.com/benb/MetAl.git metal && \
-cd metal && \
-cabal install && \
 
 RUN mkdir /usr/local/phylocom && \
 wget https://github.com/downloads/phylocom/phylocom/phylocom-4.2.zip -O /usr/local/phylocom/phylocom.zip && \
@@ -149,12 +137,16 @@ cd /usr/local/phylocom && \
 unzip /usr/local/phylocom/phylocom.zip && \
 cd /usr/local/phylocom/phylocom-4.2/src && \
 make && \
-cp phylocom /usr/local/bin
+cp phylocom /usr/local/bin && \
+cp phylomatic /usr/local/bin
 
+#modified to remove metal dependency. Only needed to compare alignments
 
-RUN mkdir /usr/local/phylogenerator && \
-wget https://github.com/willpearse/phyloGenerator/archive/master.zip -O /usr/local/phylogenerator/master.zip && \
-cd /usr/local/phylogenerator && \
-unzip /usr/local/phylogenerator/master.zip && \
-cd /usr/local/phylogenerator/phyloGenerator-master && \
+RUN mkdir /usr/local/scratchspace && \
+cd /usr/local/scratchspace && \
+git clone https://github.com/bomeara/phyloGenerator.git phyloGenerator && \
+cd phyloGenerator && \
 python setupLinux.py
+
+#so it's executable by doing phyloGenerator.py
+ENV PATH=$PATH:/usr/local/scratchspace/phyloGenerator

@@ -77,8 +77,6 @@ puppet apply
 RUN apt-get install -y curl make ruby sudo \
   && apt-get clean all
 
-RUN gem install bio
-
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
 	&& useradd -m -s /bin/bash linuxbrew \
 	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
@@ -124,6 +122,8 @@ RUN brew install trimal
 
 RUN brew install clustal-omega
 
+RUN brew install fasttree
+
 
 RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml && \
 cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
@@ -142,11 +142,13 @@ make && \
 cp phylocom /usr/local/bin && \
 cp phylomatic /usr/local/bin
 
-#modified to remove metal dependency. Only needed to compare alignments
+RUN wget http://phylosolutions.com/paup-test/paup4a159_ubuntu64.gz -O /usr/local/paup/paup.gz && \
+cd /usr/local/paup && \
+tar -xvf paup.gz  && \
+cp paup4a* /usr/local/bin/paup
 
 RUN mkdir /usr/local/scratchspace && \
 cd /usr/local/scratchspace && \
-git clone https://github.com/willpearse/phyloGenerator2.git phyloGenerator
+git clone git@github.com:dtneves/SuperFine.git superfine
 
-#so it's executable by doing phyloGenerator.py
-ENV PATH=$PATH:/usr/local/scratchspace/phyloGenerator
+ENV PATH=$PATH:/usr/local/scratchspace/superfine

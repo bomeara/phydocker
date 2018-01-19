@@ -77,6 +77,8 @@ puppet apply
 RUN apt-get install -y curl make ruby sudo \
   && apt-get clean all
 
+RUN gem install bio
+
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
 	&& useradd -m -s /bin/bash linuxbrew \
 	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
@@ -144,7 +146,7 @@ cp phylomatic /usr/local/bin
 
 RUN mkdir /usr/local/scratchspace && \
 cd /usr/local/scratchspace && \
-git clone https://github.com/bomeara/phyloGenerator.git phyloGenerator && \
+git clone https://github.com/willpearse/phyloGenerator2.git phyloGenerator && \
 cd phyloGenerator && \
 python setupLinux.py
 

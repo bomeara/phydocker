@@ -146,9 +146,7 @@ cp phylomatic /usr/local/bin
 
 RUN mkdir /usr/local/scratchspace && \
 cd /usr/local/scratchspace && \
-git clone https://github.com/willpearse/phyloGenerator2.git phyloGenerator && \
-cd phyloGenerator && \
-python setupLinux.py
+git clone https://github.com/willpearse/phyloGenerator2.git phyloGenerator
 
 #so it's executable by doing phyloGenerator.py
 ENV PATH=$PATH:/usr/local/scratchspace/phyloGenerator

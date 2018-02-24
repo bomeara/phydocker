@@ -143,11 +143,11 @@ cp phylocom /usr/local/bin && \
 cp phylomatic /usr/local/bin
 
 
-RUN mkdir /usr/local/paup && \
-wget http://phylosolutions.com/paup-test/paup4a159_ubuntu64.gz -O /usr/local/paup/paup.gz && \
-cd /usr/local/paup && \
-tar -xvf paup.gz  && \
-cp paup4a* /usr/local/bin/paup
+RUN mkdir /usr/local/paup
+RUN wget http://phylosolutions.com/paup-test/paup4a159_ubuntu64.gz -O /usr/local/paup/paup.gz
+RUN cd /usr/local/paup
+RUN tar -xvf paup.gz
+RUN cp paup4a* /usr/local/bin/paup
 
 RUN mkdir /usr/local/scratchspace && \
 cd /usr/local/scratchspace && \

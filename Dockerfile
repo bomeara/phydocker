@@ -149,10 +149,3 @@ RUN cd /usr/local/paup
 RUN gunzip /usr/local/paup/paup.gz
 RUN chmod u+x /usr/local/paup/paup
 RUN cp /usr/local/paup/paup /usr/local/bin/paup
-
-
-RUN mkdir /usr/local/scratchspace && \
-cd /usr/local/scratchspace && \
-git clone git@github.com:dtneves/SuperFine.git superfine
-
-ENV PATH=$PATH:/usr/local/scratchspace/superfine

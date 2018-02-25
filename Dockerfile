@@ -146,9 +146,9 @@ cp phylomatic /usr/local/bin
 RUN mkdir /usr/local/paup
 RUN wget http://phylosolutions.com/paup-test/paup4a159_ubuntu64.gz -O /usr/local/paup/paup.gz
 RUN cd /usr/local/paup
-RUN gunzip paup.gz
-RUN chmod u+x paup
-RUN cp paup /usr/local/bin/paup
+RUN gunzip /usr/local/paup/paup.gz
+RUN chmod u+x /usr/local/paup/paup
+RUN cp /usr/local/paup/paup /usr/local/bin/paup
 
 
 RUN mkdir /usr/local/scratchspace && \

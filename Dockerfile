@@ -104,11 +104,8 @@ RUN brew tap brewsci/bio
 
 RUN brew install treepl
 
-RUN brew install bomeara/science/raxml
+#RUN brew install phylip
 
-RUN brew install phylip
-
-RUN brew install phyutility
 
 # RUN brew install phlawd
 
@@ -122,15 +119,25 @@ RUN brew install brewsci/bio/exonerate
 
 RUN brew install brewsci/bio/prank
 
+RUN brew install brewsci/bio/raxml
+
+
 RUN brew install brewsci/bio/trimal
 
 RUN brew install brewsci/bio/clustal-omega
 
 RUN brew install brewsci/bio/fasttree
 
+#RUN brew install bomeara/science/raxml
 
-RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml && \
-cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
+#RUN brew install bomeara/science/phylip
+
+RUN brew install bomeara/science/phyutility
+
+
+#RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml
+
+# RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
 
 USER root
 
@@ -147,9 +154,9 @@ cp phylocom /usr/local/bin && \
 cp phylomatic /usr/local/bin
 
 
-RUN mkdir /usr/local/paup
-RUN wget http://phylosolutions.com/paup-test/paup4a159_ubuntu64.gz -O /usr/local/paup/paup.gz
-RUN cd /usr/local/paup
-RUN gunzip /usr/local/paup/paup.gz
-RUN chmod u+x /usr/local/paup/paup
-RUN cp /usr/local/paup/paup /usr/local/bin/paup
+#RUN mkdir /usr/local/paup
+#RUN wget http://phylosolutions.com/paup-test/paup4a159_ubuntu64.gz -O /usr/local/paup/paup.gz
+#RUN cd /usr/local/paup
+#RUN gunzip /usr/local/paup/paup.gz
+#RUN chmod u+x /usr/local/paup/paup
+#RUN cp /usr/local/paup/paup /usr/local/bin/paup

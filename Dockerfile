@@ -96,13 +96,15 @@ RUN brew tap jonchang/biology
 
 # RUN brew install revbayes
 
-RUN brew install bucky
+# RUN brew install bucky
 
-RUN brew tap bomeara/homebrew-science
+RUN brew tap brewsci/bio
 
-RUN brew install -v treepl
+#RUN brew tap bomeara/homebrew-science
 
-RUN brew install raxml
+RUN brew install treepl
+
+RUN brew install bomeara/science/raxml
 
 RUN brew install phylip
 
@@ -114,15 +116,17 @@ RUN brew install phyutility
 
 RUN brew install beast
 
-RUN brew install beast2
+RUN brew install brewsci/bio/beast2
 
-RUN brew install prank
+RUN brew install brewsci/bio/exonerate
 
-RUN brew install trimal
+RUN brew install brewsci/bio/prank
 
-RUN brew install clustal-omega
+RUN brew install brewsci/bio/trimal
 
-RUN brew install fasttree
+RUN brew install brewsci/bio/clustal-omega
+
+RUN brew install brewsci/bio/fasttree
 
 
 RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml && \

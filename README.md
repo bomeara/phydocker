@@ -24,4 +24,8 @@ Or if you want to not use the cached images:
 
 `docker build --no-cache -t bomeara/phydocker .`
 
+To push to docker hub
+
 `docker push bomeara/phydocker`
+
+However, it is currently set to automatically build with pushes to github.

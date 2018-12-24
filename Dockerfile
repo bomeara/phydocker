@@ -56,7 +56,7 @@ RUN Rscript -e "devtools::install_github( 'heibl/ips')"
 
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R")'
 
-RUN Rscript -e "install.packages('yearn')"
+RUN Rscript -e "install.packages('drake')"
 
 RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \

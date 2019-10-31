@@ -54,7 +54,7 @@ RUN Rscript -e "devtools::install_github('bomeara/phrapl')"
 
 RUN Rscript -e "devtools::install_github( 'heibl/ips')"
 
-RUN Rscript -e 'source("https://bioconductor.org/biocLite.R")'
+# RUN Rscript -e 'source("https://bioconductor.org/biocLite.R")'
 
 RUN Rscript -e "install.packages('drake')"
 

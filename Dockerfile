@@ -121,7 +121,7 @@ RUN brew tap brewsci/bio
 
 RUN brew install treepl
 
-#RUN brew install phylip
+# RUN brew install phylip
 
 
 # RUN brew install phlawd
@@ -145,11 +145,11 @@ RUN brew install brewsci/bio/clustal-omega
 
 RUN brew install brewsci/bio/fasttree
 
-#RUN brew install bomeara/science/raxml
+# RUN brew install bomeara/science/raxml
 
-#RUN brew install bomeara/science/phylip
+# RUN brew install bomeara/science/phylip
 
-RUN brew install bomeara/science/phyutility
+# sRUN brew install bomeara/science/phyutility
 
 
 #RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml

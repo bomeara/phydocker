@@ -1,6 +1,8 @@
 # phydocker
 
-FFor most users you first want to install docker.
+This will let you run R in your browser (using [Rstudio](https://rstudio.com/)) with phylogenetics packages installed already; you can also connect directly to run command line phylogenetics tools. These are all installed and configured to work. All of this is free.
+
+You will need to install [docker](https://hub.docker.com/search/?type=edition&offering=community).
 
 Then in a command window (i.e., using a terminal program (on a Mac, in /Applications/Utilities/Terminal.app):
 

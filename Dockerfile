@@ -1,12 +1,27 @@
-FROM rocker/ropensci
+FROM rocker/rstudio:latest
 
 MAINTAINER Brian O'Meara <omeara.brian@gmail.com>
-
-ADD VERSION .
 
 RUN apt-get update
 
 RUN apt-get install -y apt-utils
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    libxss1 \
+    libxt6 \
+    libxext6 \
+    libsm6 \
+    libice6 \
+    xdg-utils \
+    libxml2-dev \
+    xorg \
+    libx11-dev \
+    libglu1-mesa-dev \
+    libfreetype6-dev \
+    libmagick++-dev \
+  && rm -rf /var/lib/apt/lists/*
+
 
 RUN echo 'options(repos = c(CRAN="https://cran.rstudio.com"))' > ~/.Rprofile
 
@@ -45,6 +60,8 @@ RUN pip install -U dendropy
 RUN apt-get install -y puppet
 
 RUN Rscript -e "install.packages('ctv')"
+
+RUN Rscript -e "install.packages('devtools')"
 
 RUN Rscript -e "ctv::install.views('Phylogenetics')"
 
@@ -155,7 +172,7 @@ cp phylomatic /usr/local/bin
 
 
 #RUN mkdir /usr/local/paup
-#RUN wget http://phylosolutions.com/paup-test/paup4a159_ubuntu64.gz -O /usr/local/paup/paup.gz
+#RUN wget http://phylosolutions.com/paup-test/paup4a166_ubuntu64.gz -O /usr/local/paup/paup.gz
 #RUN cd /usr/local/paup
 #RUN gunzip /usr/local/paup/paup.gz
 #RUN chmod u+x /usr/local/paup/paup

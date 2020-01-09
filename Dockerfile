@@ -83,6 +83,8 @@ RUN Rscript -e "devtools::install_github( 'heibl/ips')"
 
 # RUN Rscript -e 'source("https://bioconductor.org/biocLite.R")'
 
+RUN Rscript -e "install.packages('tidyverse')"
+
 RUN Rscript -e "install.packages('drake')"
 
 RUN mkdir /usr/local/pathd8download && \
@@ -135,6 +137,8 @@ RUN brew install phylip
 
 RUN brew install raxml
 
+RUN brew install pandoc
+
 
 RUN brew install phlawd
 
@@ -169,6 +173,11 @@ RUN brew install brewsci/bio/fasttree
 # RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxmlHPC
 
 USER root
+
+RUN Rscript -e "install.packages('knitr')"
+
+RUN Rscript -e "install.packages('bookdown')"
+
 
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 

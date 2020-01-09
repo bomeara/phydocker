@@ -24,6 +24,10 @@ RUN apt-get update \
 
 RUN apt-get update
 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
+    echo keyboard-configuration keyboard-configuration/layout select 'English (US)' | debconf-set-selections && \
+    echo keyboard-configuration keyboard-configuration/layoutcode select 'us' | debconf-set-selections && \
+    echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
 
 RUN echo 'options(repos = c(CRAN="https://cran.rstudio.com"))' > ~/.Rprofile
 

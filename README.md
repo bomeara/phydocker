@@ -8,7 +8,7 @@ Then in a command window (i.e., using a terminal program (on a Mac, in /Applicat
 
 `docker run -v ~/Desktop:/data -e PASSWORD=mypassword -p 8787:8787 bomeara/phydocker`
 
-Then you can go to http://localhost:8787 in your web browser to run it; log in as `rstudio` with password `mypassword`. Replace `~/Desktop` with the full path to the folder where you have files (i.e., `/Users/jsmith/Documents/Chapter1`). You can keep it `~/Desktop`, it'll then have your desktop present as the `/data` directory in Docker (i.e., in R, you can do `save(ape::rcoal(10), file="/data/random.tre")` and it'll save a random tree to your desktop. When you're done, you can kill the process with control+C.
+Then you can go to http://localhost:8787 in your web browser to run it; log in as `rstudio` with password `mypassword` (and you could replace `mypassword` with another string). Replace `~/Desktop` with the full path to the folder where you have files (i.e., `/Users/jsmith/Documents/Chapter1`). You can keep it `~/Desktop`, it'll then have your desktop present as the `/data` directory in Docker (i.e., in R, you can do `save(ape::rcoal(10), file="/data/random.tre")` and it'll save a random tree to your desktop. When you're done, you can kill the process with control+C.
 
 ## Advanced
 

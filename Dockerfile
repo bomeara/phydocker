@@ -22,12 +22,14 @@ RUN apt-get update \
     libmagick++-dev \
   && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update
+
 
 RUN echo 'options(repos = c(CRAN="https://cran.rstudio.com"))' > ~/.Rprofile
 
-RUN apt-get install -y software-properties-common
+# RUN apt-get install -y software-properties-common
 
-RUN apt-get -y install python-dev
+ RUN apt-get -y install python-dev
 
 RUN apt-get -y install libcgal-dev libglu1-mesa-dev libglu1-mesa-dev libx11-dev
 
@@ -55,7 +57,9 @@ RUN apt-get install -y python-biopython
 
 RUN apt-get install dnsutils -y
 
-RUN pip install -U dendropy
+RUN apt-get install -y python3-pip
+
+RUN python3 -m pip install git+https://github.com/jeetsukumaran/DendroPy.git
 
 RUN apt-get install -y puppet
 

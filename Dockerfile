@@ -63,7 +63,7 @@ RUN apt-get install dnsutils -y
 
 RUN apt-get install -y python3-pip
 
-RUN python3 -m pip install git+https://github.com/jeetsukumaran/DendroPy.git
+# RUN python3 -m pip install git+https://github.com/jeetsukumaran/DendroPy.git
 
 RUN apt-get install -y puppet
 
@@ -133,6 +133,8 @@ RUN brew install treepl
 
 RUN brew install phylip
 
+RUN brew install raxml
+
 
 RUN brew install phlawd
 
@@ -171,14 +173,14 @@ USER root
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
 
-RUN mkdir /usr/local/phylocom && \
-wget https://github.com/downloads/phylocom/phylocom/phylocom-4.2.zip -O /usr/local/phylocom/phylocom.zip && \
-cd /usr/local/phylocom && \
-unzip /usr/local/phylocom/phylocom.zip && \
-cd /usr/local/phylocom/phylocom-4.2/src && \
-make && \
-cp phylocom /usr/local/bin && \
-cp phylomatic /usr/local/bin
+#RUN mkdir /usr/local/phylocom && \
+#wget https://github.com/downloads/phylocom/phylocom/phylocom-4.2.zip -O /usr/local/phylocom/phylocom.zip && \
+#cd /usr/local/phylocom && \
+#unzip /usr/local/phylocom/phylocom.zip && \
+#cd /usr/local/phylocom/phylocom-4.2/src && \
+#make && \
+#cp phylocom /usr/local/bin && \
+#cp phylomatic /usr/local/bin
 
 
 #RUN mkdir /usr/local/paup

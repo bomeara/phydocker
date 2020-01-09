@@ -29,7 +29,7 @@ RUN echo 'options(repos = c(CRAN="https://cran.rstudio.com"))' > ~/.Rprofile
 
 # RUN apt-get install -y software-properties-common
 
- RUN apt-get -y install python-dev
+RUN apt-get -y install python-dev
 
 RUN apt-get -y install libcgal-dev libglu1-mesa-dev libglu1-mesa-dev libx11-dev
 
@@ -113,22 +113,22 @@ RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/inst
 	&& brew config
 
 
-RUN brew tap jonchang/biology
-
-# RUN brew install revbayes
-
-# RUN brew install bucky
+# RUN brew tap jonchang/biology
 
 RUN brew tap brewsci/bio
+
+RUN brew install revbayes
+
+RUN brew install bucky
 
 #RUN brew tap bomeara/homebrew-science
 
 RUN brew install treepl
 
-# RUN brew install phylip
+RUN brew install phylip
 
 
-# RUN brew install phlawd
+RUN brew install phlawd
 
 # RUN brew install phylocom
 
@@ -153,7 +153,7 @@ RUN brew install brewsci/bio/fasttree
 
 # RUN brew install bomeara/science/phylip
 
-# sRUN brew install bomeara/science/phyutility
+# RUN brew install bomeara/science/phyutility
 
 
 #RUN cp /home/linuxbrew/.linuxbrew/bin/raxmlHPC-PTHREADS /home/linuxbrew/.linuxbrew/bin/raxml

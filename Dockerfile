@@ -63,13 +63,15 @@ RUN python3 -m pip install git+https://github.com/jeetsukumaran/DendroPy.git
 
 RUN apt-get install -y puppet
 
-RUN Rscript -e "install.packages('ctv')"
+RUN Rscript -e "install.packages('ctv', dependencies=TRUE)"
 
-RUN Rscript -e "install.packages('devtools')"
+RUN Rscript -e "install.packages('devtools', dependencies=TRUE)"
 
 RUN Rscript -e "ctv::install.views('Phylogenetics')"
 
 RUN Rscript -e "install.packages('diagram')"
+
+RUN Rscript -e "devtools::install_github('cran/P2C2M')"
 
 RUN Rscript -e "devtools::install_github('bomeara/phrapl')"
 

@@ -125,7 +125,7 @@ RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/inst
 
 RUN brew tap brewsci/bio
 
-RUN brew install revbayes
+# RUN brew install revbayes
 
 RUN brew install bucky
 

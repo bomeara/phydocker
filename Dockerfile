@@ -2,6 +2,8 @@ FROM rocker/rstudio:latest
 
 MAINTAINER Brian O'Meara <omeara.brian@gmail.com>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update
 
 RUN apt-get install -y apt-utils

@@ -24,9 +24,9 @@ For building this from scratch (not most users)
 
 `docker build -t bomeara/phydocker .`
 
-Or if you want to not use the cached images:
+Or if you want to not use the cached images (the --squash will make compressed images, but requires experimental docker):
 
-`docker build --no-cache -t bomeara/phydocker .`
+`docker build --no-cache --squash -t bomeara/phydocker .`
 
 To push to docker hub
 

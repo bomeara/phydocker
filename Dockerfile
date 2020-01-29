@@ -121,17 +121,17 @@ RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/inst
 	&& brew config
 
 
-# RUN brew tap jonchang/biology
+RUN brew tap jonchang/biology
 
-RUN brew tap brewsci/bio
+# RUN brew tap brewsci/bio
 
-# RUN brew install revbayes
+RUN brew install revbayes
 
 RUN brew install bucky
 
-#RUN brew tap bomeara/homebrew-science
+# RUN brew tap bomeara/homebrew-science
 
-RUN brew install treepl
+RUN brew install brewsci/bio/treepl
 
 RUN brew install phylip
 

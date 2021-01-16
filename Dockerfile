@@ -55,19 +55,19 @@ RUN apt-get install -y mafft
 
 RUN apt-get install -y muscle
 
-RUN apt-get install -y python-numpy
+# RUN apt-get install -y python-numpy
 
-RUN apt-get install -y python-scipy
+# RUN apt-get install -y python-scipy
 
-RUN apt-get install -y python-biopython
+# RUN apt-get install -y python-biopython
 
-RUN apt-get install dnsutils -y
+# RUN apt-get install dnsutils -y
 
-RUN apt-get install -y python3-pip
+# RUN apt-get install -y python3-pip
 
 # RUN python3 -m pip install git+https://github.com/jeetsukumaran/DendroPy.git
 
-RUN apt-get install -y puppet
+# RUN apt-get install -y puppet
 
 RUN Rscript -e "install.packages('ctv', dependencies=TRUE)"
 
@@ -77,17 +77,19 @@ RUN Rscript -e "ctv::install.views('Phylogenetics')"
 
 RUN Rscript -e "install.packages('diagram')"
 
-RUN Rscript -e "devtools::install_github('cran/P2C2M')"
+# RUN Rscript -e "devtools::install_github('cran/P2C2M')"
 
-RUN Rscript -e "devtools::install_github('bomeara/phrapl')"
+# RUN Rscript -e "devtools::install_github('bomeara/phrapl')"
 
-RUN Rscript -e "devtools::install_github( 'heibl/ips')"
+# RUN Rscript -e "devtools::install_github( 'heibl/ips')"
 
 # RUN Rscript -e 'source("https://bioconductor.org/biocLite.R")'
 
 RUN Rscript -e "install.packages('tidyverse')"
 
 RUN Rscript -e "install.packages('drake')"
+
+RUN Rscript -e "install.packages('targets')"
 
 RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \
@@ -112,56 +114,56 @@ RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
 	&& useradd -m -s /bin/bash linuxbrew \
 	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
-USER linuxbrew
-WORKDIR /home/linuxbrew
+# USER linuxbrew
+# WORKDIR /home/linuxbrew
 
-ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH \
-	SHELL=/bin/bash \
-	USER=linuxbrew
+# ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH \
+# 	SHELL=/bin/bash \
+# 	USER=linuxbrew
 
-RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)" \
-	&& brew config
-
-
-RUN brew tap jonchang/biology
-
-# RUN brew tap brewsci/bio
-
-RUN brew install revbayes
-
-RUN brew install bucky
-
-# RUN brew tap bomeara/homebrew-science
-
-RUN brew install brewsci/bio/treepl
-
-RUN brew install phylip
-
-RUN brew install raxml
-
-RUN brew install pandoc
+# RUN yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)" \
+# 	&& brew config
 
 
-RUN brew install phlawd
+# RUN brew tap jonchang/biology
 
-# RUN brew install phylocom
+# # RUN brew tap brewsci/bio
 
-RUN brew install beast
+# RUN brew install revbayes
 
-RUN brew install brewsci/bio/beast2
+# RUN brew install bucky
 
-RUN brew install brewsci/bio/exonerate
+# # RUN brew tap bomeara/homebrew-science
 
-RUN brew install brewsci/bio/prank
+# RUN brew install brewsci/bio/treepl
 
-RUN brew install brewsci/bio/raxml
+# RUN brew install phylip
+
+# RUN brew install raxml
+
+# RUN brew install pandoc
 
 
-RUN brew install brewsci/bio/trimal
+# RUN brew install phlawd
 
-RUN brew install brewsci/bio/clustal-omega
+# # RUN brew install phylocom
 
-RUN brew install brewsci/bio/fasttree
+# RUN brew install beast
+
+# RUN brew install brewsci/bio/beast2
+
+# RUN brew install brewsci/bio/exonerate
+
+# RUN brew install brewsci/bio/prank
+
+# RUN brew install brewsci/bio/raxml
+
+
+# RUN brew install brewsci/bio/trimal
+
+# RUN brew install brewsci/bio/clustal-omega
+
+# RUN brew install brewsci/bio/fasttree
 
 # RUN brew install bomeara/science/raxml
 
@@ -181,7 +183,7 @@ RUN Rscript -e "install.packages('knitr')"
 RUN Rscript -e "install.packages('bookdown')"
 
 
-ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+# ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
 
 #RUN mkdir /usr/local/phylocom && \

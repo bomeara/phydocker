@@ -23,6 +23,11 @@ RUN apt-get update \
     libfreetype6-dev \
     libmagick++-dev \
 	libudunits2-dev \
+	libfftw3-dev \
+	libgsl-dev \
+	libgit2-dev \
+	libharfbuzz-dev \
+	libfribidi-dev \
   && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update

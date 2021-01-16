@@ -22,6 +22,7 @@ RUN apt-get update \
     libglu1-mesa-dev \
     libfreetype6-dev \
     libmagick++-dev \
+	libudunits2-dev \
   && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update
@@ -98,11 +99,11 @@ unzip /usr/local/pathd8download/PATHd8.zip && \
 cc PATHd8.c -O3 -lm -o PATHd8 && \
 cp PATHd8 /usr/local/bin/PATHd8
 
-RUN mkdir /usr/local/supersmart && \
-cd /usr/local/supersmart && \
-git clone https://github.com/naturalis/supersmart.git && \
-cd supersmart/conf && \
-puppet apply
+# RUN mkdir /usr/local/supersmart && \
+# cd /usr/local/supersmart && \
+# git clone https://github.com/naturalis/supersmart.git && \
+# cd supersmart/conf && \
+# puppet apply
 
 
 # From https://github.com/Linuxbrew/docker/blob/master/centos7/Dockerfile
@@ -110,9 +111,9 @@ puppet apply
 RUN apt-get install -y curl make ruby sudo \
   && apt-get clean all
 
-RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
-	&& useradd -m -s /bin/bash linuxbrew \
-	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
+# RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
+# 	&& useradd -m -s /bin/bash linuxbrew \
+# 	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
 # USER linuxbrew
 # WORKDIR /home/linuxbrew

@@ -28,6 +28,7 @@ RUN apt-get update \
 	libgit2-dev \
 	libharfbuzz-dev \
 	libfribidi-dev \
+	libgdal-dev \ 
   && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update
@@ -81,6 +82,8 @@ RUN Rscript -e "install.packages('devtools', dependencies=TRUE)"
 
 RUN Rscript -e "ctv::install.views('Phylogenetics')"
 
+RUN Rscript -e "install.packages('hisse', dependencies=TRUE)"
+
 RUN Rscript -e "install.packages('diagram')"
 
 # RUN Rscript -e "devtools::install_github('cran/P2C2M')"
@@ -94,8 +97,6 @@ RUN Rscript -e "install.packages('diagram')"
 RUN Rscript -e "install.packages('tidyverse')"
 
 RUN Rscript -e "install.packages('drake')"
-
-RUN Rscript -e "install.packages('targets')"
 
 RUN mkdir /usr/local/pathd8download && \
 wget http://www2.math.su.se/PATHd8/PATHd8.zip -O /usr/local/pathd8download/PATHd8.zip && \

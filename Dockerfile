@@ -145,7 +145,6 @@ RUN apt-get install -y raxml
 
 # # RUN brew tap bomeara/homebrew-science
 
-# RUN brew install brewsci/bio/treepl
 
 # RUN brew install phylip
 
@@ -195,13 +194,22 @@ RUN Rscript -e "install.packages('bookdown')"
 
 # ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
-# RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-# RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-# RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
+RUN brew install brewsci/bio/treepl
+
+RUN brew install brewsci/bio/beast2
+
+RUN brew install bomeara/science/phyutility
+
+RUN brew install brewsci/bio/clustal-omega
+
+RUN brew install brewsci/bio/phlawd
 
 #RUN mkdir /usr/local/phylocom && \
 #wget https://github.com/downloads/phylocom/phylocom/phylocom-4.2.zip -O /usr/local/phylocom/phylocom.zip && \

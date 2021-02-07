@@ -16,7 +16,7 @@ If you want to run on the command line instead (i.e., from inside Terminal on a 
 
 `docker run -it -v ~/Desktop:/data bomeara/phydocker /bin/bash`
 
-You can then use programs like treePL and phlawd without having to go through installation.  `exit` command when done.
+You can then use programs like raxmlHPC-SSE, treePL, and phlawd without having to go through installation.  `exit` command when done.
 
 ## Building
 

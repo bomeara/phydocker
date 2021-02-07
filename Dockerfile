@@ -117,6 +117,9 @@ cp PATHd8 /usr/local/bin/PATHd8
 RUN apt-get install -y curl make ruby sudo \
   && apt-get clean all
 
+
+RUN apt-get install -y raxml
+
 # RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
 # 	&& useradd -m -s /bin/bash linuxbrew \
 # 	&& echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
@@ -191,6 +194,13 @@ RUN Rscript -e "install.packages('bookdown')"
 
 
 # ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+
+# RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+# RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+# RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 
 #RUN mkdir /usr/local/phylocom && \

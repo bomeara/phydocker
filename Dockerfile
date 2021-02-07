@@ -194,6 +194,10 @@ RUN Rscript -e "install.packages('bookdown')"
 
 # ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
 
+USER linuxbrew
+WORKDIR /home/linuxbrew
+
+
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)

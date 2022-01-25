@@ -206,20 +206,31 @@ WORKDIR /home/linuxbrew
 
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-RUN test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-RUN test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-RUN test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-RUN echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+RUN test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 
-RUN brew install brewsci/bio/treepl
+RUN test -d /home/linuxbrew/.linuxbrew 
 
-RUN brew install brewsci/bio/beast2
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-RUN brew install bomeara/science/phyutility
+#RUN test -r ~/.bash_profile
 
-RUN brew install brewsci/bio/clustal-omega
+RUN echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bash_profile
 
-RUN brew install brewsci/bio/phlawd
+RUN echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
+
+RUN /home/linuxbrew/.linuxbrew/bin/brew install brewsci/bio/treepl
+
+#RUN /home/linuxbrew/.linuxbrew/bin/brew install brewsci/bio/beast2
+
+#RUN /home/linuxbrew/.linuxbrew/bin/brew install bomeara/science/phyutility
+
+#RUN /home/linuxbrew/.linuxbrew/bin/brew install brewsci/bio/clustal-omega
+
+RUN /home/linuxbrew/.linuxbrew/bin/brew install brewsci/bio/phlawd
+
+RUN /home/linuxbrew/.linuxbrew/bin/brew install brewsci/bio/iqtree2
+
+RUN /home/linuxbrew/.linuxbrew/bin/brew install raxml-ng
 
 #RUN mkdir /usr/local/phylocom && \
 #wget https://github.com/downloads/phylocom/phylocom/phylocom-4.2.zip -O /usr/local/phylocom/phylocom.zip && \
